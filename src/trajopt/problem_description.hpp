@@ -161,7 +161,7 @@ public:
 
  See trajopt::PoseTermInfo
  */
-struct PoseCostInfo : public TermInfo, public MakesCost, public MakesConstraint {
+struct TRAJOPT_API PoseCostInfo : public TermInfo, public MakesCost, public MakesConstraint {
   int timestep;
   Vector3d xyz;
   Vector4d wxyz;
@@ -221,7 +221,7 @@ struct JointVelCostInfo : public TermInfo, public MakesCost {
   DEFINE_CREATE(JointVelCostInfo)
 };
 
-struct JointVelConstraintInfo : public TermInfo, public MakesConstraint {
+struct TRAJOPT_API JointVelConstraintInfo : public TermInfo, public MakesConstraint {
   DblVec vals;
   int first_step, last_step;
   void fromJson(const Value& v);
@@ -260,7 +260,7 @@ struct CollisionCostInfo : public TermInfo, public MakesCost {
 /**
 joint-space position constraint
  */
-struct JointConstraintInfo : public TermInfo, public MakesConstraint {
+struct TRAJOPT_API JointConstraintInfo : public TermInfo, public MakesConstraint {
   /// joint values. list of length 1 automatically gets expanded to list of length n_dof
   DblVec vals;
   /// which timestep. default = n_timesteps - 1
